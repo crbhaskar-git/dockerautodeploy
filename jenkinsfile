@@ -11,14 +11,14 @@ pipeline {
    }
    stage('Build Docker Image') {
 	//steps {
-           scripts {
+           steps {
 	      bat'docker build -t crbhaskar/dockerautodeploy .'
            }
 	//}
    }
    stage('Push Image to Hub') {
 	//steps {
-           scripts {
+           steps {
 	      bat'docker login -u crbhaskar -p Meena123$'
               bat'docker push crbhaskar/dockerautodeploy'
            }
