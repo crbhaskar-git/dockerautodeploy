@@ -12,15 +12,15 @@ pipeline {
    stage('Build Docker Image') {
 	steps {
            scripts {
-	      bat 'docker build -t crbhaskar/dockerautodeploy .'
+	      bat'docker build -t crbhaskar/dockerautodeploy .'
            }
 	}
    }
    stage('Push Image to Hub') {
 	steps {
            scripts {
-	      bat 'docker login -u crbhaskar -p Meena123$'
-              bat 'docker push crbhaskar/dockerautodeploy'
+	      bat'docker login -u crbhaskar -p Meena123$'
+              bat'docker push crbhaskar/dockerautodeploy'
            }
 	}
    }
