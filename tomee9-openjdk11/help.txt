@@ -1,0 +1,9 @@
+C:\fis\work\tomee9-openjdk11>docker build -t tomee-plume-eclipse-temurin17:9.0.0 .
+C:\fis\work>docker build -t examples:3.0 .
+C:\fis\work>docker container run -p 8080:8080 -p 8443:8443 examples:3.0
+
+#RUN rm -fr /usr/local/tomee/webapps/ROOT
+
+# FROM eclipse-temurin:17.0.5_8-jre
+
+# https://nsc.tnebltd.gov.in/adharupload/

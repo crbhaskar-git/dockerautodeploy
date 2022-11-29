@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fis</groupId>
+  <artifactId>dockerautodeploy</artifactId>
+  <version>2.0</version>
+  <packaging>war</packaging>
+  <name>dockerautodeploy</name>
+  <description>new maven project</description>
+	<properties>
+	    <maven.compiler.target>17</maven.compiler.target>
+	    <maven.compiler.source>17</maven.compiler.source>
+	</properties>  
+
+  <dependencies>
+	<!-- https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl -->
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-impl</artifactId>
+	    <version>1.2.5</version>
+	    <scope>runtime</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-spec -->
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-spec</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+	<dependency>
+	    <groupId>jakarta.servlet</groupId>
+	    <artifactId>jakarta.servlet-api</artifactId>
+	    <version>6.0.0</version>
+	    <scope>provided</scope>
+	</dependency>
+<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
+<dependency>
+    <groupId>jakarta.servlet.jsp</groupId>
+    <artifactId>jakarta.servlet.jsp-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-juli -->
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-juli</artifactId>
+    <version>10.1.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-logging-juli -->
+<dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-logging-juli</artifactId>
+    <version>9.0.0.M6</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-client-api -->
+<dependency>
+    <groupId>jakarta.websocket</groupId>
+    <artifactId>jakarta.websocket-client-api</artifactId>
+    <version>2.1.0</version>
+    <scope>provided</scope>
+</dependency>
+	
+<!-- https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-api -->
+<dependency>
+    <groupId>jakarta.websocket</groupId>
+    <artifactId>jakarta.websocket-api</artifactId>
+    <version>2.1.0</version>
+    <scope>provided</scope>
+</dependency>
+	
+	
+  </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>17</source>
+                <target>17</target>
+            </configuration>
+        </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <webappDirectory>C:/fis/work/assemble/webapps</webappDirectory>
+        </configuration>
+      </plugin>        
+    </plugins>
+    <finalName>dockerautodeploy</finalName>
+</build>
+</project>
