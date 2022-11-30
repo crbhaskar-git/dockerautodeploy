@@ -25,4 +25,11 @@ pipeline {
 	//}
    }
  }
+  node {
+    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
+        docker.image('crbhaskar/dockerautodeploy').withRun('-p 8080:8080') {
+            /* do things */
+        }
+    }
+  } 
 }
