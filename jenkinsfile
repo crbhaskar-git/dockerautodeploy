@@ -42,9 +42,10 @@ pipeline {
     steps {
     agent {
       docker {
-        registryCredentialsId 'dockerhub-login'
-        registryUrl 'https://index.docker.io/v2/'
         image 'crbhaskar/dockerautodeploy'
+        reuseNode true
+        registryUrl 'https://index.docker.io/v2/'
+        registryCredentialsId 'dockerhub-login'
         args '-u root'
       }
     }
