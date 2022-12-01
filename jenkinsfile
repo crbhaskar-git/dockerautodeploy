@@ -27,15 +27,15 @@ pipeline {
    /*
   stage ('Run the image in container') {
     steps {
-    script {
-    docker.withRegistry('https://index.docker.io/v2/','dockerhub-login') {
-    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
-        docker.image('crbhaskar/dockerautodeploy').withRun('-p 8080:8080') {
-            /* do things */
-        }
-    }
-    }
-    }
+	    script {
+		docker.withRegistry('https://index.docker.io/v2/','dockerhub-login') {
+		    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
+			docker.image('crbhaskar/dockerautodeploy').withRun('-p 8080:8080') {
+			    /* do things */
+			}
+		    }
+		}
+	    }
     }
   }   */
   stage('Deploy') {
@@ -46,7 +46,7 @@ pipeline {
         image 'crbhaskar/dockerautodeploy'
         args '-u root'
       }
-  }
+    }
   }
  }
 }
