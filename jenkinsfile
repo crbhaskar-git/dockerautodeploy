@@ -53,7 +53,10 @@ pipeline {
   }
   */
    stage('Run the application in container using image'){
-          runApp()
+   steps {
+    bat'docker pull crbhaskar/dockerautodeploy'
+    bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
+    }
   }
  }
 }
@@ -76,9 +79,10 @@ def pushToImage(containerName, tag, dockerUser, dockerPassword){
     sh "docker push $dockerUser/$containerName:$tag"
     echo "Image push complete"
 }
-*/
+
 def runApp(){
     bat'docker pull crbhaskar/dockerautodeploy'
     bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
     echo "Application started on port: 8080"
 }
+*/
