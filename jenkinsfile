@@ -24,6 +24,7 @@ pipeline {
            }
 	//}
    }
+   /*
   stage ('Run the image in container') {
     steps {
     script {
@@ -36,6 +37,16 @@ pipeline {
     }
     }
     }
-  }   
+  }   */
+  stage('Deploy') {
+    agent {
+      docker {
+        registryCredentialsId 'dockerhub-login'
+        registryUrl 'https://index.docker.io/v2/'
+        image 'crbhaskar/dockerautodeploy'
+        args '-u root'
+      }
+  }
+  }
  }
 }
