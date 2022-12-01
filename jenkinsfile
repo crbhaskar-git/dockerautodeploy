@@ -55,7 +55,11 @@ pipeline {
    stage('Run the application in container using image'){
    steps {
     bat'docker pull crbhaskar/dockerautodeploy'
-    bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
+    //bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
+		    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
+			docker.image('crbhaskar/dockerautodeploy').withRun('-p 8080:8080') {
+			}
+		    }
     }
   }
  }
