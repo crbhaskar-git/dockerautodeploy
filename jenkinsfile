@@ -55,7 +55,7 @@ pipeline {
    stage('Run the application in container using image'){
    steps {
     bat'docker pull crbhaskar/dockerautodeploy'
-    bat'docker run -d --rm -p 8080:8080 --name dockerautodeploytest crbhaskar/dockerautodeploy'
+    bat'docker run -d --rm -p 8080:8080 crbhaskar/dockerautodeploy'
     /*
     		script {
     		docker.withRegistry('https://index.docker.io/v2/','dockerhub-login') {
