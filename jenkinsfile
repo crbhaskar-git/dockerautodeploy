@@ -55,12 +55,14 @@ pipeline {
    stage('Run the application in container using image'){
    steps {
     bat'docker pull crbhaskar/dockerautodeploy'
-    bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
+    //bat'docker run -d --rm -p 8080:8080 --name dockerautodeploytest crbhaskar/dockerautodeploy'
     		script {
+    		docker.withRegistry('https://index.docker.io/v2/','dockerhub-login') {
 		    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
-			docker.image('crbhaskar/dockerautodeploy').withRun('-d --rm -p 8080:8080 --name dockerautodeploytest') {
+			docker.image('crbhaskar/dockerautodeploy').withRun('-d --rm -p 8080:8080') {
 			}
 		    }
+		}
 		}
     }
   }
@@ -88,7 +90,7 @@ def pushToImage(containerName, tag, dockerUser, dockerPassword){
 
 def runApp(){
     bat'docker pull crbhaskar/dockerautodeploy'
-    bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
+    bat'docker run -d --rm -p 8080:8080 crbhaskar/dockerautodeploy'
     echo "Application started on port: 8080"
 }
 */
