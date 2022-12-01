@@ -58,7 +58,7 @@ pipeline {
     bat'docker run -d --rm -p 8080:8080 --name dockerautodeploy crbhaskar/dockerautodeploy'
     		script {
 		    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
-			docker.image('crbhaskar/dockerautodeploy').withRun('-d --rm -p 8080:8080 --name dockerautodeploy') {
+			docker.image('crbhaskar/dockerautodeploy').withRun('-d --rm -p 8080:8080 --name dockerautodeploytest') {
 			}
 		    }
 		}
