@@ -59,7 +59,7 @@ pipeline {
     		script {
     		docker.withRegistry('https://index.docker.io/v2/','dockerhub-login') {
 		    docker.withServer('tcp://localhost:2375', 'dockerhub-login') {
-			docker.image('crbhaskar/dockerautodeploy').withRun('-d --rm -p 8080:8080') {
+			docker.image('crbhaskar/dockerautodeploy').withRun('--rm -p 8080:8080') {
 			}
 		    }
 		}
