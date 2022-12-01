@@ -39,6 +39,7 @@ pipeline {
     }
   }   */
   stage('Deploy') {
+    steps {
     agent {
       docker {
         registryCredentialsId 'dockerhub-login'
@@ -46,6 +47,7 @@ pipeline {
         image 'crbhaskar/dockerautodeploy'
         args '-u root'
       }
+    }
     }
   }
  }
